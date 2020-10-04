@@ -1,12 +1,11 @@
 import axios from 'axios'
-import qs from 'qs'
+import { getQuery } from './route'
 
 const http = axios.create()
 
 http.interceptors.request.use(
   config => {
-    const query = qs.parse(window.location.search, { ignoreQueryPrefix: true })
-    const token = query.token
+    const token = getQuery('token')
     if (token) config.headers['Authorization'] = token
     return config
   },
