@@ -37,7 +37,7 @@ class Home extends React.Component {
         <Space size="middle">
           <a target={'_bank'} href={this.state.urlPrefix + record.name}>打开</a>
           <CopyToClipboard 
-            text={`![image]{${this.state.urlPrefix + record.name}}`}
+            text={`![${record.name}](${this.state.urlPrefix + record.name})`}
             onCopy={() => message.success('copied!')}
           >
             <a>markdown</a>
